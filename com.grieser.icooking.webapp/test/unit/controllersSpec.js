@@ -2,10 +2,15 @@
 
 /* jasmine specs for controllers go here */
 
-describe('controllers', function() {
+describe('CookingRecipesController', function() {
 
-  it("should do something", function() {
+	beforeEach(module('iCookingApp'));
+	
+	it('should create "recipes" model with 2 recipes', inject(function($controller) {
+      var scope = {},
+          ctrl = $controller('CookingRecipesController', {$scope:scope});
 
-  });
-
+      expect(scope.recipes.length).toBe(2);
+    }));
+	
 });
