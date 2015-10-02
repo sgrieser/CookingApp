@@ -18,14 +18,20 @@
       <!--Sidebar content-->
 
       Search: <input ng-model="query">
+      Sort by:
+	  <select ng-model="orderProp">
+		  <option value="name">Alphabetical</option>
+		  <option value="duration">Duration</option>
+	  </select>
 
     </div>
     <div class="col-md-10">
       <!--Body content-->
 
-      <ul>
-    <li ng-repeat="recipe in recipes | filter:query">
+    <ul class="phones">
+    <li ng-repeat="recipe in recipes | filter:query | orderBy:orderProp">
       <span>{{recipe.name}}</span>
+      <p>Duration: {{recipe.duration}}</p>
       <p>{{recipe.snippet}}</p>
     </li>
   </ul>
