@@ -21,11 +21,11 @@ describe('iCooking App', function() {
       query.sendKeys('zza');
       expect(recipeList.count()).toBe(1);
     });
-  });
   
   
   it('should be possible to control recipe order via the drop down select box', function() {
 
+	  
 	  var recipeNameColumn = element.all(by.repeater('recipe in recipes').column('recipe.name'));
 	  var query = element(by.model('query'));
 
@@ -51,5 +51,15 @@ describe('iCooking App', function() {
 
 	});
   
+  it('should render recipse specific links', function() {
+      var query = element(by.model('query'));
+      query.sendKeys('Pizza');
+      element(by.css('.recipes li a')).click();
+      browser.getLocationAbsUrl().then(function(url) {
+        expect(url).toEqual('/recipes/1');
+      });
+    });
+  });
+
 
 });

@@ -1,0 +1,18 @@
+[
+ {
+  "duration": 1.5,
+  "id": "0",
+  "name": "Käsespätzle",
+  "snippet": "So lecker weil aus Schwaben! Einfach nach Intuition",
+  "ingredients": ["Mehl", "Wasser", "Eier"],
+  "rating": 1
+ },
+ {
+  "duration": 0.5,
+  "id": "1",
+  "name": "Pizza",
+  "snippet": "Teig ausrollen, fäääät belegen und dann ab in den Ofen",
+  "ingredients": ["Mehl", "Wasser", "Eier", "Tomaten", "Schinken", "Pilze"],
+  "rating": 2
+ }
+]
