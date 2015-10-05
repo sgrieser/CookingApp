@@ -1,9 +1,17 @@
 describe('iCooking App', function() {
 
+	it('should redirect index.html to index.html#/recipes', function() {
+		browser.get('app/index.html');
+		browser.getLocationAbsUrl().then(function(url) {
+		expect(url).toEqual('/recipes');
+	});
+	});	
+	
+	
   describe('Recipe view', function() {
 
     beforeEach(function() {
-      browser.get('app/index.html');
+      browser.get('app/index.html#/recipes');
     });
 
 
@@ -56,10 +64,23 @@ describe('iCooking App', function() {
       query.sendKeys('Pizza');
       element(by.css('.recipes li a')).click();
       browser.getLocationAbsUrl().then(function(url) {
-        expect(url).toEqual('/recipes/1');
+        expect(url).toEqual('/recipes/1_Pizza');
       });
     });
   });
 
 
+  describe('Recipe detail view', function() {
+	  
+	  beforeEach(function() {
+	    browser.get('app/index.html#/recipes/0_Käsespätzle');
+	      });
+	  
+	  
+	      it('should display placeholder page with recipe Id', function() {
+	expect(element(by.binding('recipe.name')).getText()).toBe('Käsespätzle');
+	  });
+	});  
+
+  
 });

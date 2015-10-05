@@ -1,0 +1,6 @@
+{
+ "name": "Pizza",
+ "description": "Beschreibung",
+ "cookingInstruction":"Das ist die detaillierte Beschriebung wie man Pizza macht",
+ "ingredients": ["Mehl", "Wasser", "Eier", "Tomaten", "Schinken", "Pilze"]
+}

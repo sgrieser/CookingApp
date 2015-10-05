@@ -1,0 +1,25 @@
+<img ng-src="{{recipe.images[0]}}" class="recipe">
+
+<h1>{{recipe.name}}</h1>
+
+<p>{{recipe.description}}</p>
+
+<ul class="recipe-thumbs">
+  <li ng-repeat="img in recipe.images">
+    <img ng-src="{{img}}">
+  </li>
+</ul>
+
+<ul class="specs">
+  <li>
+    <span>Ingredients</span>
+    <dl>
+      <dd ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</dd>
+    </dl>
+  </li>
+
+  <li>
+    <span>Cooking Instruction</span>
+    <dd>{{recipe.cookingInstruction}}</dd>
+  </li>
+</ul>

@@ -1,0 +1,6 @@
+{
+ "name": "Käsespätzle",
+ "description": "Beschreibung",
+ "cookingInstruction":"Das ist die detaillierte Beschriebung wie man Käsespätzle macht",
+ "ingredients": ["Mehl", "Wasser", "Eier"]
+}
