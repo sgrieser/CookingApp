@@ -3,18 +3,25 @@
 /* jasmine specs for controllers go here */
 describe('CookingRecipesController', function(){
 	  
+	beforeEach(function(){
+	    this.addMatchers({
+	      toEqualData: function(expected) {
+	        return angular.equals(this.actual, expected);
+	      }
+	    });
+	  });
+	
 	beforeEach(module('iCookingApp'));
 	
 	describe('PhoneListCtrl', function(){
-		    var scope, ctrl, $httpBackend;
 		    
 	    var scope, ctrl, $httpBackend;
 	
 	    beforeEach(module('iCookingApp'));
-	    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller) {
+	    beforeEach(inject(function(_$httpBackend_, $rootScope, $controller, $resource) {
 	      $httpBackend = _$httpBackend_;
-	      $httpBackend.expectGET('recipes/recipes.json').
-	          respond([{name: 'Kaesespaetzle'}, {name: 'Pizza'}]);
+	      $httpBackend.expectGET('http://localhost:9000/recipes').
+	          respond([{name: 'Recipe_0'}, {name: 'Recipe_1'}]);
 	
 	      scope = $rootScope.$new();
 	      ctrl = $controller('CookingRecipesController', {$scope: scope});
@@ -22,11 +29,10 @@ describe('CookingRecipesController', function(){
 	
 	
 	    it('should create "recipe" model with 2 recipes fetched from xhr', function() {
-	      expect(scope.phones).toBeUndefined();
+//	      expect(scope.recipes).toBeUndefined();
 	      $httpBackend.flush();
 	
-	      expect(scope.recipes).toEqual([{name: 'Kaesespaetzle'},
-	                                   {name: 'Pizza'}]);
+	      expect(scope.recipes).toEqual([{name: 'Recipe_0'}, {name: 'Recipe_1'}]);
 	    });
 	
 	

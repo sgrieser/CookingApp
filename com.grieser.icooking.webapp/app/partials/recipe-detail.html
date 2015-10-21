@@ -1,25 +1,31 @@
-<img ng-src="{{recipe.images[0]}}" class="recipe">
+<div class="jumbotron">{{component.name}}
+	<img alt="" ng-src="{{getImageUrl(recipe.imageUrl)}}">
+	<h1>{{recipe.name}}</h1>
+	<p>{{recipe.snippet}}</p>
+</div>
 
-<h1>{{recipe.name}}</h1>
+<h3>Zutaten</h3>
 
-<p>{{recipe.description}}</p>
+<div class="panel panel-default" ng-repeat="component in recipe.components">
+  <div class="panel-heading">
+  <h3 class="panel-title">{{component.name}} </h3>
+  </div>
+  
+  <table class="table">
+	  <tr ng-repeat="ingredient in component.ingredients">
+	    <td>{{ingredient.quantity}}</td>
+	    <td>{{ingredient.name}}</td> 
+	    <td>{{ingredient.appendix}}</td>
+	  </tr>
+  </table>
+</div>
 
-<ul class="recipe-thumbs">
-  <li ng-repeat="img in recipe.images">
-    <img ng-src="{{img}}">
-  </li>
-</ul>
+<h3>Zubereitung</h3>
+<div ng-repeat="step in recipe.preparationSteps">
+  <div >
+	<!--  <img ng-src="{{getImageUrl(step.imageUrl)}}" alt="">  -->
+	<p >{{step.description}}</p><br/>
+  </div>
+</div>
 
-<ul class="specs">
-  <li>
-    <span>Ingredients</span>
-    <dl>
-      <dd ng-repeat="ingredient in recipe.ingredients">{{ingredient}}</dd>
-    </dl>
-  </li>
 
-  <li>
-    <span>Cooking Instruction</span>
-    <dd>{{recipe.cookingInstruction}}</dd>
-  </li>
-</ul>
