@@ -1,44 +1,307 @@
 <!doctype html>
-<html lang="en" ng-app="iCookingApp">
+<html lang="en" ng-app="iCookingApp" >
 <head>
 <meta charset="utf-8">
 <title>iCooking</title>
-<link rel="stylesheet"
-	href="bower_components/bootstrap/dist/css/bootstrap.css">
-<link rel="stylesheet" href="css/app.css">
-<link rel="stylesheet" href="css/recipes-detail.css">
-<link rel="stylesheet" href="css/recipes-list.css">
-<script src="bower_components/angular/angular.js"></script>
-<script src="bower_components/angular-route/angular-route.js"></script>
-<script src="bower_components/angular-resource/angular-resource.js"></script>
-<script src="js/app.js"></script>
-<script src="js/controllers.js"></script>
-<script src="js/filters.js"></script>
-<script src="js/services.js"></script>
+<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css" type="text/css">
+<!--link rel="stylesheet" href="bower_components/magnific-popup/dist/magnific-popup.css" type="text/css"-->
+
+<!-- Include roboto.css to use the Roboto web font, material.css to include the theme and ripples.css to style the ripple effect -->
+<link href="bower_components/bootstrap-material-design/dist/css/roboto.min.css" rel="stylesheet">
+<link href="bower_components/bootstrap-material-design/dist/css/material.min.css" rel="stylesheet">
+<link href="bower_components/bootstrap-material-design/dist/css/ripples.min.css" rel="stylesheet">
+
+<link rel="stylesheet" href="css/simpletextrotator.css">
+<link rel="stylesheet" href="css/flexslider.css">
+<link rel="stylesheet" href="css/animate.css">
+
+<link rel="stylesheet" href="css/iCookingApp.css">
 </head>
 
 <body>
-	<div class="master-container">
-		<section class="page-container">
-			<div class="max-width-wrapper">
-				<div class="page-main">
-					<div class="page-main-content">
-						<div class="row">
-							<div class="column">
 
-								<div class="page-header">
-									<h3>Caro's Kochrezepte</h3>
-								</div>
+<!-- PRELOADER -->
+<div style="display: none;" class="page-loader">
+		<div style="display: none;" class="loader">Loading...</div>
+</div>
+<!-- /PRELOADER -->
 
-								<div class="content-section-body" ng-view></div>
+<!-- NAVIGATION -->
+<nav class="navbar-material-grey navbar-fixed-top"  role="navigation">
+
+			<div class="container">
+		
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#custom-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" style="color:grey" ng-href="#/recipes">Online Kochbuch</a>
+				</div>
+		
+				<div class="collapse navbar-collapse" id="custom-collapse">
+		
+					<ul class="nav navbar-nav navbar-right">
+		
+						<!-- Trigger the modal with a button -->
+						<!--
+						<li class="dropdown" >
+
+							<button type="button" class="btn btn-flat btn-default" style="color:grey" data-toggle="modal" data-target="#newRecipeModal">
+							  Neues Rezept eingeben
+							</button>
+
+						</li>		
+						-->
+						<li class="dropdown" style="padding-top:10px;">
+							<div>
+								<input class="form-control" style="color:grey; min-width: 150px;" placeholder="Enter search text" type="text" ng-model="query"></input>
+							</div>	
+						</li>  	
+
+
+ 					</ul>
+				</div>
+		
+			</div>
+
+	</nav>
+<!-- /NAVIGATION -->
+
+<!-- WRAPPER -->
+<div class="wrapper">
+
+	<div class="ng-view"></div>
+
+		<!-- PAGINATION -->
+		<section class="module-small p-t-10">
+
+			<div class="container">
+			
+				<div class="pagination font-inc text-uppercase">
+			
+					<!--a ng-href="#/recipes"><i class="fa fa-angle-left"></i> Prev</a-->
+					<!--a ng-href="#/recipes">Next <i class="fa fa-angle-right"></i></a-->
+			
+				</div>
+			
+			</div>
+
+		</section>
+		<!-- /PAGINATION -->
+
+		<!-- DIVIDER -->
+		<hr class="divider-w">
+		<!-- /DIVIDER -->
+
+		<!-- CONTACT -->
+		<section class="module-small">
+		
+			<div class="container">
+		
+				<div class="row">
+		
+					<!-- CONTENT BOX -->
+					<div class="col-sm-4">
+						<div class="content-box">
+							<div class="content-box-icon">
+								<span class="icon-map-pin"></span>
+							</div>
+							<div class="content-box-title font-inc">
+								Rudbeckiastrasse 7B, 80935 München, Germany
 							</div>
 						</div>
 					</div>
-
+					<!-- /CONTENT BOX -->
+		
+					<!-- CONTENT BOX -->
+					<div class="col-sm-4">
+						<div class="content-box">
+							<div class="content-box-icon">
+								<span class="icon-phone"></span>
+							</div>
+							<div class="content-box-title font-inc">
+								+49 89 6606 1968
+							</div>
+						</div>
+					</div>
+					<!-- /CONTENT BOX -->
+		
+					<!-- CONTENT BOX -->
+					<div class="col-sm-4">
+						<div class="content-box">
+							<div class="content-box-icon">
+								<span class="icon-envelope"></span>
+							</div>
+							<div class="content-box-title font-inc">
+								steffen.grieser@gmx.de
+							</div>
+						</div>
+					</div>
+					<!-- /CONTENT BOX -->
+		
 				</div>
-
+		
 			</div>
+		
 		</section>
+		<!-- /CONTACT -->
+
+		<!-- FOOTER -->
+		<footer class="footer">
+		
+			<div class="container">
+		
+				<div class="row">
+		
+					<div class="col-sm-12 text-center">
+						<p class="copyright font-inc m-b-0">© 2015 <a ng-href="#/recipes">Online Cookbook</a>, All Rights Reserved.</p>
+					</div>
+		
+				</div>
+		
+			</div>
+		
+		</footer>
+		<!-- /FOOTER -->
+
 	</div>
+<!-- /WRAPPER -->
+
+<!-- Scroll-up -->
+<div style="display: block;" class="scroll-up">
+	<a href="#totop"><i class="fa fa-angle-double-up"></i></a>
+</div>
+
+<!-- Create New Recipe Modal --> 
+<!--
+<div class="modal" id="newRecipeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog" style="width:100%;height="90%>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="js-title-step"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row hide" data-step="1" data-title="Allgemeine Beschreibung">
+          <form class="form-horizontal">
+		    <fieldset>
+		        <legend>Neues Rezept eingeben</legend>
+		        <div class="form-group">
+		            <label for="inputName" class="col-lg-2 control-label">Name</label>
+		            <div class="col-lg-10">
+		                <input type="name" class="form-control" id="inputName" placeholder="Name eingeben" >
+		            </div>
+		        </div>
+				<div class="form-group">
+		            <label for="inputDuration" class="col-lg-2 control-label">Dauer</label>
+		            <div class="col-lg-10">
+		                <input type="duration" class="form-control" id="inputDuration" placeholder="Dauer eingeben" >
+		            </div>
+		        </div>	
+				<div class="form-group">
+		            <label for="textAreaSnippet" class="col-lg-2 control-label">Kurzbeschreibung</label>
+		            <div class="col-lg-10">
+		                <textarea class="form-control" rows="3" id="textAreaSnippet" ></textarea>
+		                <span class="help-block">Kurzbeschreibung eingeben</span>
+	            	</div>
+	        	</div>		        	        
+		     </fieldset>
+		  </form>      
+        </div>
+        <div class="row hide" data-step="2" data-title="Zutaten">
+          <div class="row form-group">
+          	<div class="col-xs-4">
+		    	<input class="form-control floating-label" id="component" type="text" placeholder="Bestandteil">
+		    </div>
+          </div>
+          <div class="row form-group">
+          	<div class="col-xs-4">
+		    	<input class="form-control floating-label" id="incredient" type="text" placeholder="Zutat">
+		    </div>
+		    <div class="col-xs-2">
+		    	<input class="form-control floating-label" id="amount" type="text" placeholder="Menge">
+		    </div>
+		    <div class="col-xs-4">
+		    	<input class="form-control floating-label" id="comment" type="text" placeholder="Kommentar">
+		    </div>
+		    <div class="col-xs-1">
+		    	<a href="#" class="btn btn-flat btn-success">Add</a>
+		    </div>		    
+		  </div>
+		  <div class="row" style="margin-left:10px;margin-right:10px;">
+				  <strong class="panel-title">Teig </strong>
+				  
+				  <table class="table">
+					  <tr >
+					    <td>1</td>
+					    <td>Ei</td> 
+					    <td>aber bitte frisch</td>
+					  </tr>
+					  <tr >
+					    <td>1000g</td>
+					    <td>Mehl</td> 
+					    <td></td>
+					  </tr>
+				  </table>
+			</div>	  
+        </div>
+        <div class="row hide" data-step="3" data-title="Ablauf!">
+          <div class="jumbotron">Ablauf</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default js-btn-step pull-left" data-orientation="cancel" data-dismiss="modal"></button>
+        <button type="button" class="btn btn-warning js-btn-step" data-orientation="previous"></button>
+        <button type="button" class="btn btn-success js-btn-step" data-orientation="next"></button>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<!-- /Create New Recipe Modal -->
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery-bootstrap-modal-steps/dist/jquery-bootstrap-modal-steps.min.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+<script src="bower_components/bootstrap-material-design/dist/js/material.min.js"></script>
+<!--script src="bower_components/magnific-popup/dist/jquery.magnific-popup.min.js"></script-->
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+
+<script src="js/3rdPrty/SmoothScroll.js"></script>
+<script src="js/custom.js"></script>
+<script src="js/iCookingApp.js"></script>
+<script src="js/filters.js"></script>
+<script src="modules/recipe_list/recipeListController.js"></script>
+<script src="modules/recipe_details/recipeDetailController.js"></script>
+<script src="modules/recipe_services/remoteConnectionServices.js"></script>
+
+<script>
+    $(document).ready(function() {
+        // This command is used to initialize some elements and make them work properly
+        $.material.init();
+
+    });
+
+        $('#myModal').modalSteps({
+			btnCancelHtml: 'Cancel',
+			btnPreviousHtml: 'Previous',
+			btnNextHtml: 'Next',
+			btnLastStepHtml: 'Complete',
+			disableNextButton: false,
+			completeCallback: function(){},
+			callbacks: {}
+			});
+
+
+
+
+</script>
+
 </body>
 </html>

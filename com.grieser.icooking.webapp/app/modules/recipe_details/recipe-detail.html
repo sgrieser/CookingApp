@@ -1,0 +1,80 @@
+		<!-- HOME -->
+		<section style="background-image: url(&quot;img/background.jpg&quot;);" class="module module-header bg-dark bg-dark-50" data-background="img/background.jpg">
+
+			<div class="container">
+
+				<!-- MODULE TITLE -->
+				<div class="row">
+
+					<div class="col-sm-6 col-sm-offset-3">
+
+						<h1 class="module-title font-alt align-center">{{recipe.name}}</h1>
+
+						<div class="module-subtitle font-inc align-center">
+							{{recipe.snippet}}
+							
+						</div>
+
+					</div>
+
+				</div>
+				<!-- /MODULE TITLE -->
+
+			</div>
+
+		</section>
+		<!-- /HOME -->
+
+<section class="module">
+
+			<div class="container">
+
+				<div class="row">
+
+					<div class="col-sm-8 col-sm-offset-2">
+
+						<!-- POST -->
+						<div class="post">
+
+<!--
+							<div class="post-thumbnail">
+								<img alt="" ng-src="{{getImageUrl(recipe.imageUrl)}}">
+							</div>
+-->
+							<div class="post-entry">
+
+								<h3>Zutaten</h3>
+								
+								<div class="panel panel-default" ng-repeat="component in recipe.components">
+								  <div class="panel-heading">
+								  <h3 class="panel-title">{{component.name}} </h3>
+								  </div>
+								  
+								  <table class="table">
+									  <tr ng-repeat="ingredient in component.ingredients">
+									    <td>{{ingredient.quantity}}</td>
+									    <td>{{ingredient.name}}</td> 
+									    <td>{{ingredient.appendix}}</td>
+									  </tr>
+								  </table>
+								</div>
+								
+								<h3>Zubereitung</h3>
+								<div ng-repeat="step in recipe.preparationSteps">
+								  <div >
+									<!--  <img ng-src="{{getImageUrl(step.imageUrl)}}" alt="">  -->
+									<p >{{$index + 1}}. {{step.description}}</p><br/>
+								  </div>
+								</div>
+	
+							</div>
+
+						</div>
+						<!-- /POST -->
+					</div>
+
+				</div>
+
+			</div>
+
+		</section>
